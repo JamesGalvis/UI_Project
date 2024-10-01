@@ -1,54 +1,29 @@
-import Carousel from '@/components/carousel'
-import FlipCard from '@/components/flip-card'
-import Footer from '@/components/footer'
-import HeaderCard from '@/components/header-card'
-import ImageGallery from '@/components/image-gallery'
-import InfoSection from '@/components/info-section'
-import InfoTabs from '@/components/info-tabs'
-import Navbar from '@/components/navbar'
-import NewsSection from '@/components/news-section'
-import PresentationSupport from '@/components/presentation-support'
-import StepCard from '@/components/step-card'
-import TestimonialsCarousel from '@/components/testimonials-carousel'
-import { headersInfo } from '@/constants'
+import Carousel from "@/components/carousel"
+import FlipCard from "@/components/flip-card"
+import Footer from "@/components/footer"
+import HeaderCard from "@/components/header-card"
+import CarouselHeader from "@/components/dinamic/carousel-header"
+import ImageGallery from "@/components/image-gallery"
+import InfoSection from "@/components/info-section"
+import InfoTabs from "@/components/info-tabs"
+import Navbar from "@/components/navbar"
+import NewsSection from "@/components/news-section"
+import PresentationSupport from "@/components/presentation-support"
+import StepCard from "@/components/step-card"
+import TestimonialsCarousel from "@/components/testimonials-carousel"
+import { headersInfo } from "@/constants"
+import { AboutUs } from "@/components/dinamic/about-us"
+import { Events } from "@/components/dinamic/events/events"
 
 export default function Home() {
   return (
     <div className="relative">
-      <Navbar />
       <main>
-        <Carousel autoSlide slidesLenght={headersInfo.length}>
-          {headersInfo.map((info, i) => (
-            <HeaderCard
-              key={i}
-              title={info.title}
-              subtitle={info.subtitle}
-              buttonLabel={info.buttonLabel}
-              imageSrc={info.heroImgSrc}
-              className="bg-gray-400/30"
-            />
-          ))}
-        </Carousel>
+        <CarouselHeader />
 
-        <InfoSection
-          title="Lorem ipsum dolor sit amet"
-          paragraph="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque ad
-            excepturi suscipit officia delectus? Odit molestiae cum consequatur
-            illo reiciendis corporis ad accusamus"
-          label="Amet ipsum"
-          imageSrc="/images/composition-3.svg"
-          className="mt-0"
-        />
-        <InfoSection
-          reverse
-          title="Lorem ipsum dolor sit amet"
-          paragraph="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque ad
-            excepturi suscipit officia delectus? Odit molestiae cum consequatur
-            illo reiciendis corporis ad accusamus"
-          label="Amet ipsum"
-          imageSrc="/images/composition-2.svg"
-          className="mb-12"
-        />
+        <Events />
+
+        <AboutUs />
 
         <ImageGallery />
 
@@ -115,9 +90,10 @@ export default function Home() {
               contentAlign="items-start"
               textAlign="text-left"
               title={info.title}
-              subtitle={info.subtitle}
+              description={info.subtitle}
               buttonLabel={info.buttonLabel}
               imageSrc={info.heroImgSrc}
+              buttonHref=""
               className="h-[350px] bg-gray-400/30"
             />
           ))}
@@ -125,7 +101,7 @@ export default function Home() {
 
         <NewsSection />
 
-        <InfoTabs />
+        {/* <InfoTabs /> */}
 
         <div className="space-y-12 py-12">
           <h2 className="xs:text-center lg:text-3xl text-[26px] font-bold text-foreground/90 px-5">
@@ -146,7 +122,6 @@ export default function Home() {
           <TestimonialsCarousel />
         </div>
       </main>
-      <Footer />
     </div>
   )
 }

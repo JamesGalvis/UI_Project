@@ -1,3 +1,5 @@
+import { Event } from "@/types"
+
 export const testimonials = [
   {
     feedback:
@@ -343,3 +345,56 @@ export const noticiasProyeccionSocial = [
     imageSrc: '/images/newsImg-7.jpg',
   },
 ]
+
+export const events: Event[] = [
+  {
+    id: '1',
+    title: 'Exposición de Arte Contemporáneo',
+    description: 'Muestra de las obras de artistas emergentes del Centro de Arte de Uniminuto.',
+    startDate: new Date('2024-09-30T10:00:00'),
+    endDate: new Date('2024-09-30T17:00:00'),
+    billboard: '/images/heroImg3.png',
+    createdAt: new Date('2024-09-01T12:00:00Z'),
+    updatedAt: new Date('2024-09-10T12:00:00Z'),
+  },
+  {
+    id: '2',
+    title: 'Festival de Música Folclórica',
+    description: 'Festival anual que celebra la tradición musical de las regiones colombianas.',
+    startDate: new Date('2024-10-10T18:00:00'),
+    endDate: new Date('2024-10-10T22:00:00'),
+    billboard: '/images/heroImg3.png',
+    createdAt: new Date('2024-09-05T14:00:00Z'),
+    updatedAt: new Date('2024-09-15T09:00:00Z'),
+  },
+  {
+    id: '3',
+    title: 'Taller de Danza Tradicional',
+    description: 'Taller interactivo sobre danzas tradicionales de Colombia.',
+    startDate: new Date('2024-09-28T09:00:00'),
+    endDate: new Date('2024-09-28T12:00:00'),
+    billboard: '/images/heroImg3.png',
+    createdAt: new Date('2024-09-03T10:45:00Z'),
+    updatedAt: new Date('2024-09-03T10:45:00Z'),
+  },
+  {
+    id: '4',
+    title: 'Concierto de Música Andina',
+    description: 'Presentación en vivo de música andina a cargo de la agrupación del Centro de Cultura de Uniminuto.',
+    startDate: new Date('2024-10-05T19:30:00'),
+    endDate: new Date('2024-10-05T21:30:00'),
+    billboard: '/images/heroImg3.png',
+    createdAt: new Date('2024-09-10T11:00:00Z'),
+    updatedAt: new Date('2024-09-10T11:00:00Z'),
+  },
+  {
+    id: '5',
+    title: 'Feria de Artesanías Locales',
+    description: 'Exposición y venta de artesanías tradicionales hechas por comunidades locales.',
+    startDate: new Date('2024-10-15T10:00:00'),
+    endDate: new Date('2024-10-15T16:00:00'),
+    billboard: '/images/heroImg3.png',
+    createdAt: new Date('2024-09-12T16:30:00Z'),
+    updatedAt: new Date('2024-09-12T16:30:00Z'),
+  },
+];

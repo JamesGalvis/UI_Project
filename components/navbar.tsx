@@ -25,7 +25,7 @@ export default function Navbar() {
   const router = useRouter()
 
   return (
-    <header className="lg:h-[86px] h-auto w-full flex items-center max-lg:flex-col max-sm:flex-row max-sm:justify-between lg:justify-between bg-[#162644] border-b border-yellow-400 px-8 max-lg:py-1 max-lg:gap-1 sticky top-0 left-0 right-0 z-30">
+    <header className="lg:h-[86px] h-auto w-full flex items-center max-lg:flex-col max-sm:flex-row max-sm:justify-between lg:justify-between bg-[#162644] border-b border-yellow-400 px-8 max-lg:py-1 max-lg:gap-1 sticky top-0 left-0 right-0 z-50">
       <a href="/">
         <picture>
           <Image

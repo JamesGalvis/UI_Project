@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import React, { useCallback, useEffect, useState } from 'react'
-import { Button } from './ui/button'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import React, { useCallback, useEffect, useState } from "react"
+import { Button } from "./ui/button"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 interface CarouselProps {
   children: React.ReactNode
@@ -16,7 +16,7 @@ export default function Carousel({
   slidesLenght,
   children,
   autoSlide,
-  autoSlideInterval = 3000,
+  autoSlideInterval = 8000,
 }: CarouselProps) {
   const [current, setCurrent] = useState(0)
 
@@ -51,7 +51,7 @@ export default function Carousel({
         variant="ghost"
         className="max-lg:hidden absolute top-[50%] left-4 rounded-full bg-slate-300/80 group z-20"
       >
-        <ChevronLeft className='text-primary'/>
+        <ChevronLeft className="text-primary" />
       </Button>
       <Button
         size="icon"
@@ -59,7 +59,7 @@ export default function Carousel({
         variant="ghost"
         className="max-lg:hidden absolute top-[50%] right-4  rounded-full bg-slate-300/80 group z-20"
       >
-        <ChevronRight className='text-primary'/>
+        <ChevronRight className="text-primary" />
       </Button>
 
       <div className="absolute bottom-4 right-0 left-0">
@@ -71,8 +71,8 @@ export default function Carousel({
                 onClick={() => setCurrent(i)}
                 key={i}
                 className={cn(
-                  'transition-all w-3 h-3 rounded-full bg-gray-200 cursor-pointer border border-gray-500',
-                  current !== i && 'bg-opacity-50'
+                  "transition-all w-3 h-3 rounded-full bg-gray-200 cursor-pointer border border-gray-500",
+                  current !== i && "bg-opacity-50"
                 )}
               />
             ))}
