@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { ReactLenis } from "lenis/react"
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <Toaster richColors />
         </body>
       </ReactLenis>
     </html>
