@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import DropdownMenu from './dropdown-menu'
-import { Button } from './ui/button'
-import { MapPin, Phone, Search, UserRound } from 'lucide-react'
+import Image from "next/image";
+import DropdownMenu from "./dropdown-menu";
+import { Button } from "./ui/button";
+import { MapPin, Phone, Search, UserRound } from "lucide-react";
 import {
   enlacesEstudiaEnUniminuto,
   enlacesProyecciónSocial,
@@ -17,15 +17,40 @@ import {
   noticiasVidaUniversitaria,
   roles,
   sedes,
-} from '@/constants'
-import { useRouter } from 'next/navigation'
-import MobileNavbar from './mobile-navbar'
+} from "@/constants";
+import { useRouter } from "next/navigation";
+import MobileNavbar from "./mobile-navbar";
+import { useMotionValueEvent, useScroll, motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Navbar() {
-  const router = useRouter()
+  const router = useRouter();
+
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious();
+
+    if (previous) {
+      if (latest > previous && latest > 150) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+    }
+  });
 
   return (
-    <header className="lg:h-[86px] h-auto w-full flex items-center max-lg:flex-col max-sm:flex-row max-sm:justify-between lg:justify-between bg-[#162644] border-b border-yellow-400 px-8 max-lg:py-1 max-lg:gap-1 sticky top-0 left-0 right-0 z-50">
+    <motion.header
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: "-100%" },
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className="fixed top-0 lg:h-[86px] h-auto w-full flex items-center max-lg:flex-col max-sm:flex-row max-sm:justify-between lg:justify-between bg-[#162644] border-b border-yellow-400 px-8 max-lg:py-1 max-lg:gap-1 left-0 right-0 z-50"
+    >
       <a href="/">
         <picture>
           <Image
@@ -55,7 +80,7 @@ export default function Navbar() {
             size="sm"
             variant="ghost"
             className="h-7 hover:bg-transparent hover:text-white justify-center text-white gap-[5px] px-0 py-2"
-            onClick={() => router.push('https://www.uniminuto.edu/contactanos')}
+            onClick={() => router.push("https://www.uniminuto.edu/contactanos")}
           >
             <Phone
               className="text-[#ffd300] h-[15px] w-[15px]"
@@ -66,7 +91,7 @@ export default function Navbar() {
           <Button
             size="sm"
             className="h-7 bg-[#a81bb4] hover:text-[#a81bb4] hover:bg-white justify-center gap-1 text-white px-4 py-2 max-xl:hidden"
-            onClick={() => router.push('https://www.uniminuto.edu/donaciones')}
+            onClick={() => router.push("https://www.uniminuto.edu/donaciones")}
           >
             <span className="text-xs font-medium">Donaciones</span>
           </Button>
@@ -84,7 +109,7 @@ export default function Navbar() {
             size="sm"
             className="group h-7 bg-[#004a93] hover:bg-white hover:text-[#004a93] justify-center text-white gap-[5px] px-4 py-2 max-xl:hidden"
             onClick={() =>
-              router.push('https://www.uniminuto.edu/oferta-academica')
+              router.push("https://www.uniminuto.edu/oferta-academica")
             }
           >
             <span className="text-sm font-medium">Programas</span>
@@ -112,7 +137,7 @@ export default function Navbar() {
           />
           <Button
             onClick={() =>
-              router.push('https://www.uniminuto.edu/portal-i-d-i-c')
+              router.push("https://www.uniminuto.edu/portal-i-d-i-c")
             }
             size="sm"
             className="max-xl:hidden h-7 justify-center py-2 pb-3 px-0 bg-transparent hover:bg-transparent font-bold"
@@ -129,6 +154,6 @@ export default function Navbar() {
         </div>
       </div>
       <MobileNavbar />
-    </header>
-  )
+    </motion.header>
+  );
 }

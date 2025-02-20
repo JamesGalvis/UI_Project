@@ -1,22 +1,22 @@
-import { Testimony } from '@/types'
+import { Testimonial, Testimony } from '@/types'
 import ImgAvatar from './img-avatar'
 import { Card } from './ui/card'
 
 interface TestimonyCardProps {
-  testimony: Testimony
+  testimony: Testimonial
 }
 
 export default function TestimonyCard({ testimony }: TestimonyCardProps) {
-  const { imageSrc, name, position, feedback } = testimony
+  const { imageUrl, name, position, content } = testimony
   return (
     <div className="select-none flex ms:flex-row flex-col items-center justify-center   ms:px-6 px-3 py-6 gap-6 border-none">
       <div className="relative">
-        <ImgAvatar className="md:h-[140px] md:w-[140px]" imageSrc={imageSrc} />
+        <ImgAvatar className="md:h-[140px] md:w-[140px]" imageSrc={imageUrl} />
         {/* <Quotes className="h-10 w-10 absolute -top-3 left-2 z-50" /> */}
       </div>
       <div className="space-y-3">
         <blockquote className="text-base font-medium leading-snug italic max-ms:text-center">
-          &quot;{feedback}&quot;
+          &quot;{content}&quot;
         </blockquote>
         <div className="space-y-1 max-ms:text-center">
           <h3 className="text-sm font-bold">{name}</h3>

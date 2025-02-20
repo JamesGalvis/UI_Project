@@ -14,6 +14,7 @@ import TestimonialsCarousel from "@/components/testimonials-carousel"
 import { headersInfo } from "@/constants"
 import { AboutUs } from "@/components/dinamic/about-us"
 import { Events } from "@/components/dinamic/events/events"
+import { Testimonials } from "@/components/dinamic/testimonials"
 
 export default function Home() {
   return (
@@ -119,7 +120,7 @@ export default function Home() {
           <h2 className="xs:text-center lg:text-3xl text-[26px] font-bold text-foreground/90 px-5">
             Testimonios
           </h2>
-          <TestimonialsCarousel />
+          <Testimonials />
         </div>
       </main>
     </div>

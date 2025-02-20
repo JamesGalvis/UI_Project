@@ -9,11 +9,15 @@ import {
   type CarouselApi,
 } from '@/components/ui/carousel'
 import TestimonyCard from './testimony-card'
-import { testimonials } from '@/constants'
 import { useEffect, useState } from 'react'
 import Autoplay from 'embla-carousel-autoplay'
+import { Testimonial } from '@/types'
 
-export default function TestimonialsCarousel() {
+interface TestimonialsCarouselProps {
+  testimonials: Testimonial[]
+}
+
+export default function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps) {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)

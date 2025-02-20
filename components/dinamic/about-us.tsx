@@ -5,7 +5,7 @@ export async function AboutUs() {
   const aboutUsInfo = await getAboutUsInfo()
 
   return (
-    <div className="mb-12">
+    <div className="lg:container max-lg:max-w-[700px] mx-auto mb-12 space-y-4 my-4">
       {aboutUsInfo.map((info, i) => (
         <InfoSection
           key={i}
