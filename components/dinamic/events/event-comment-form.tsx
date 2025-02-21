@@ -41,7 +41,7 @@ export function EventCommentForm({ eventId }: { eventId: string }) {
     startTransition(async () => {
       try {
         const response = await axios.post(
-          `${process.env.NEXT_PUBLIC_API_URL}/events/${eventId}/comments`,
+          `${process.env.NEXT_PUBLIC_API_URL}/special-events/${eventId}/comments`,
           values
         );
 

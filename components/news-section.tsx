@@ -4,7 +4,7 @@ export default function NewsSection() {
   return (
     <section
       key="1"
-      className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-6xl mx-auto p-4"
+      className="grid grid-cols-1 lg:grid-cols-2 gap-3 max-w-6xl mx-auto p-4"
     >
       {/* News 1 */}
       <div className="relative group overflow-hidden rounded-lg shadow-lg">
@@ -68,32 +68,4 @@ export default function NewsSection() {
       </div>
     </section>
   )
-}
-
-{
-  /* <div>
-          <Image
-            alt="Featured News"
-            className="object-cover w-full h-80"
-            height="400"
-            width="600"
-            src="/images/composition-2.svg"
-            style={{
-              aspectRatio: '600/400',
-              objectFit: 'cover',
-            }}
-          />
-          <div className="bg-white p-6 dark:bg-gray-950">
-            <span className="inline-block bg-primary text-white px-3 py-1 rounded-full text-xs font-medium mb-4">
-              Featured
-            </span>
-            <h3 className="font-bold text-2xl mb-2">
-              Exciting New Product Launch
-            </h3>
-            <p className="text-gray-500 dark:text-gray-400 mb-4">
-              Get ready for our latest and greatest product, coming soon!
-            </p>
-            <Button size="sm">Learn More</Button>
-          </div>
-        </div> */
 }

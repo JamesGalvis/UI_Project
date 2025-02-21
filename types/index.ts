@@ -29,6 +29,16 @@ export interface AboutUsInfo {
   updatedAt: Date
 }
 
+export interface ArticleInfo {
+  id: string
+  title: string
+  description: string
+  image: string
+  reverse: boolean
+  createdAt: Date
+  updatedAt: Date
+}
+
 export interface Event {
   id: string
   title: string

@@ -22,7 +22,7 @@ export default function PresentationSupport({
   return (
     <div
       className={cn(
-        'flex md:flex-row flex-col justify-center sm:max-w-screen-lg max-w-screen-sm mx-auto',
+        'flex md:flex-row flex-col justify-center sm:max-w-[1100px] max-w-screen-sm mx-auto text-muted',
         reverse && 'md:flex-row-reverse'
       )}
     >
@@ -38,7 +38,7 @@ export default function PresentationSupport({
         className="py-6 lg:px-12 sm:px-8 px-4 md:translate-y-5 shadow-rounded"
         style={{ backgroundColor, color: textColor }}
       >
-        <h3 className="text-[26px] text-[#004381] mb-10">{title}</h3>
+        <h3 className="text-[26px] font-semibold mb-10">{title}</h3>
         <p>{description}</p>
       </div>
     </div>

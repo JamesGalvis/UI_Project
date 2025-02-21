@@ -17,9 +17,9 @@ export default function ImageGallery() {
   const [selectedImage, setSelectedImage] = useState(images[0])
 
   return (
-    <div className="flex max-sm:flex-col justify-center gap-4 p-4">
+    <div className="flex max-sm:flex-col justify-center gap-4 p-4 xl:max-w-6xl w-full mx-auto">
       <div
-        className="sm:flex-1 relative lg:w-[740px] xl:w-[768px] max-w-screen-md max-sm:h-[60vh] rounded-md bg-red-500"
+        className="sm:flex-1 relative xl:max-w-6xl max-sm:h-[60vh] rounded-md bg-red-500"
         // style={{ maxHeight: '80vh' }}
       >
         <Image

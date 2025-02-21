@@ -1,14 +1,14 @@
-import Image from "next/image";
+import Image from "next/image"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
+} from "@/components/ui/carousel"
 
 interface EventImagesProps {
-  images: string[];
+  images: string[]
 }
 
 export function EventImages({ images }: EventImagesProps) {
@@ -28,27 +28,11 @@ export function EventImages({ images }: EventImagesProps) {
                 className="absolute inset-0 rounded-lg size-full object-contain"
               />
             </div>
-            {/* <div
-              className="p-1 w-full h-[400px] rounded-md"
-              style={{
-                backgroundImage: `url(${image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "50% 50%",
-              }}
-            >
-              <Image
-                src={image}
-                alt="Carousel image"
-                fill
-                priority
-                className="rounded-lg size-full object-cover"
-              />
-            </div> */}
           </CarouselItem>
         ))}
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />
     </Carousel>
-  );
+  )
 }
