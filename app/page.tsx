@@ -9,6 +9,7 @@ import { Events } from "@/components/dinamic/events/events";
 import { Testimonials } from "@/components/dinamic/testimonials";
 import { SpecialEvents } from "@/components/dinamic/special-events";
 import { ArticlesSection } from "@/components/dinamic/articles-section";
+import { Gallery } from "@/components/dinamic/gallery";
 
 export default function Home() {
   return (
@@ -38,7 +39,7 @@ export default function Home() {
           ))}
         </Carousel>
 
-        <ImageGallery />
+        <Gallery />
 
         <NewsSection />
 

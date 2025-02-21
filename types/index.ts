@@ -19,6 +19,13 @@ export interface Testimonial {
   updatedAt: Date;
 }
 
+export interface Gallery {
+  id: string;
+  imageUrl: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
 export interface AboutUsInfo {
   id: string
   title: string

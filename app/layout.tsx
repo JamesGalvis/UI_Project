@@ -20,14 +20,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ReactLenis root options={{ lerp: 0.08 }}>
+      {/* <ReactLenis root options={{ lerp: 0.08 }}> */}
         <body className={inter.className}>
           <Navbar />
           {children}
           <Footer />
           <Toaster richColors />
         </body>
-      </ReactLenis>
+      {/* </ReactLenis> */}
     </html>
   );
 }
