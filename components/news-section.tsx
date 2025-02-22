@@ -1,6 +1,9 @@
-import NewsCard from './news-card'
+import { getNews } from "@/actions/get-news";
+import NewsCard from "./news-card";
 
-export default function NewsSection() {
+export default async function NewsSection() {
+  const news = await getNews();
+
   return (
     <section
       key="1"
@@ -21,51 +24,28 @@ export default function NewsSection() {
 
         <NewsCard
           href="#"
-          imageSrc="/images/composition-2.svg"
+          imageSrc={news[0].imageUrl}
           imageHeight={400}
           imageWidth={600}
           imageAspectRatio="600/400"
-          title="Exciting New Product Launch"
-          paragraph="Get ready for our latest and greatest product, coming soon!"
-          type="Featured"
+          title={news[0].title}
+          paragraph={news[0].description}
           mainNews
         />
       </div>
 
       {/* News 2 */}
       <div className="grid grid-cols-1 ms:grid-cols-2 gap-6">
-        <NewsCard
-          href="#"
-          imageSrc="/images/composition-3.svg"
-          title="Introducing Our Latest Feature"
-          paragraph="Learn about the exciting new capabilities added."
-          type="Culture"
-        />
-
-        <NewsCard
-          href="#"
-          imageSrc="/images/composition-4.svg"
-          title="Company Expansion Announcement"
-          paragraph="Read about our exciting plans for growth and new locations."
-          type="Tecnology"
-        />
-
-        <NewsCard
-          href="#"
-          imageSrc="/images/composition-7.svg"
-          title="Upcoming Webinar on Industry Trends"
-          paragraph="Sign up now to learn about the latest industry insights."
-          type="New"
-        />
-
-        <NewsCard
-          href="#"
-          imageSrc="/images/composition-14.svg"
-          title="Customer Success Story Highlight"
-          paragraph="Read about how one of our customers achieved amazing results."
-          type="Science"
-        />
+        {news.slice(1).map((news) => (
+          <NewsCard
+            key={news.id}
+            href={news.link}
+            imageSrc={news.imageUrl}
+            title={news.title}
+            paragraph={news.description}
+          />
+        ))}
       </div>
     </section>
-  )
+  );
 }

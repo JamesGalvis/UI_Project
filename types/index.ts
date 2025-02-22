@@ -9,6 +9,16 @@ export interface Billboard {
   updatedAt: Date
 }
 
+export interface News {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  link: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
 export interface Testimonial {
   id: string;
   name: string;

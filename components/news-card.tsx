@@ -11,7 +11,6 @@ interface NewsCardProps {
   imageSrc: string
   title: string
   paragraph: string
-  type: string
   href: string
   mainNews?: boolean
 }
@@ -19,7 +18,6 @@ interface NewsCardProps {
 export default function NewsCard({
   imageSrc,
   title,
-  type,
   paragraph,
   imageHeight = 200,
   imageWidth = 300,
@@ -30,6 +28,7 @@ export default function NewsCard({
   return (
     <Link
       href={href}
+      target='_blank'
       className={cn(
         !mainNews &&
           'relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2'
@@ -47,14 +46,6 @@ export default function NewsCard({
         }}
       />
       <div className={cn('bg-white p-4 dark:bg-gray-950', mainNews && 'p-6')}>
-        <span
-          className={cn(
-            'inline-block bg-blue-300 text-blue-600 px-3 py-1 rounded-full text-xs font-semibold mb-2',
-            mainNews && 'bg-primary text-white mb-4'
-          )}
-        >
-          {type}
-        </span>
         <h4
           className={cn(
             'group group-hover:underline font-bold text-lg mb-2',
@@ -71,7 +62,7 @@ export default function NewsCard({
         >
           {paragraph}
         </p>
-        {mainNews && <Button size="sm">Learn More</Button>}
+        {mainNews && <Button size="sm">Ver más</Button>}
       </div>
     </Link>
   )
