@@ -89,7 +89,7 @@ export default async function SpecialEventPage({
               <h2 className="text-2xl font-bold mb-4">Imágenes del Evento</h2>
               <EventImages images={event.images} />
             </section>
-            <EventCommentForm eventId={eventId} />
+            <EventCommentForm eventId={eventId} route="special-events" />
           </div>
         </div>
       </main>

@@ -24,7 +24,7 @@ const eventCommentSchema = z.object({
   comment: z.string().min(1).trim(),
 });
 
-export function EventCommentForm({ eventId }: { eventId: string }) {
+export function EventCommentForm({ eventId, route }: { eventId: string, route: string }) {
   const [isLoading, startTransition] = useTransition();
 
   const form = useForm<z.infer<typeof eventCommentSchema>>({
@@ -41,7 +41,7 @@ export function EventCommentForm({ eventId }: { eventId: string }) {
     startTransition(async () => {
       try {
         const response = await axios.post(
-          `${process.env.NEXT_PUBLIC_API_URL}/special-events/${eventId}/comments`,
+          `${process.env.NEXT_PUBLIC_API_URL}/${route}/${eventId}/comments`,
           values
         );
 

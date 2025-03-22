@@ -1,7 +1,7 @@
-import { PodcastIcon } from "lucide-react"
+import { PodcastIcon } from "lucide-react";
 
 interface PodcastProps {
-  url: string
+  url: string;
 }
 
 export function Podcast({ url }: PodcastProps) {
@@ -25,5 +25,5 @@ export function Podcast({ url }: PodcastProps) {
         Tu navegador no soporta el elemento de audio.
       </audio>
     </section>
-  )
+  );
 }

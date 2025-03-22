@@ -5,6 +5,7 @@ import { EventImages } from "./components/event-images";
 import { getEvent } from "@/actions/get-events";
 import { formatDate } from "@/utils/format-date";
 import { EventCommentForm } from "@/components/dinamic/events/event-comment-form";
+import { cn } from "@/lib/utils";
 
 export default async function EventPage({
   params,
@@ -60,19 +61,29 @@ export default async function EventPage({
               </div>
             </section>
 
-            <div className="md:grid md:grid-cols-2 md:gap-8">
+            <div
+              className={cn(
+                "md:grid md:grid-cols-2 md:gap-8",
+                event.videoUrl! && "md:grid-cols-1 md:gap-0",
+                event.podcastUrl! && "md:grid-cols-1 md:gap-0"
+              )}
+            >
               {/* Podcast */}
-              <Podcast url={event.podcastUrl} />
+              {event.podcastUrl && <Podcast url={event.podcastUrl} />}
 
               {/* YouTube Video */}
-              <section className="mb-8 lg:mb-6 shadow-lg rounded-lg p-6 bg-white">
+              <section
+                className={cn(
+                  "mb-8 lg:mb-6 shadow-lg rounded-lg p-6 bg-white",
+                  event.videoUrl ? "block" : "hidden"
+                )}
+              >
                 <h2 className="text-2xl font-bold mb-4">
-                  <Clapperboard className="size-5 mr-3 inline-block" /> Video
+                  <Clapperboard className="size-5 mr-3 inline-block" /> Publicación
                 </h2>
                 <div className="aspect-w-16 aspect-h-9">
                   <iframe
                     src={event.videoUrl}
-                    // frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     className="w-full h-[300px] md:h-[200px]"
@@ -85,11 +96,11 @@ export default async function EventPage({
           {/* Right Column */}
           <div>
             {/* Event Images */}
-            <section className="">
+            <section className={cn(event.images.length === 0 && "hidden")}>
               <h2 className="text-2xl font-bold mb-4">Imágenes del Evento</h2>
               <EventImages images={event.images} />
             </section>
-            <EventCommentForm eventId={eventId} />
+            <EventCommentForm eventId={eventId} route="events" />
           </div>
         </div>
       </main>

@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="relative">
       <main>
-        <CarouselHeader />
+      <CarouselHeader />
 
         <Events />
 
@@ -23,7 +23,9 @@ export default function Home() {
 
         <ArticlesSection />
 
-        <Carousel slidesLenght={headersInfo.length}>
+        <CarouselHeader />
+
+        {/* <Carousel slidesLenght={headersInfo.length}>
           {headersInfo.map((info, i) => (
             <HeaderCard
               key={i}
@@ -37,7 +39,7 @@ export default function Home() {
               className="h-[350px] bg-gray-400/30"
             />
           ))}
-        </Carousel>
+        </Carousel> */}
 
         <Gallery />
 
